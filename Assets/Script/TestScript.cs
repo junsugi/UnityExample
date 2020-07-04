@@ -6,11 +6,17 @@ public class TestScript : MonoBehaviour
 {
     public float maxSpeed;
     Rigidbody2D rigid;
+    Animator animator;
+    SpriteRenderer render;
+
+    public float jumpPower;
 
     
     void Awake()
     {
         this.rigid = GetComponent<Rigidbody2D>();
+        this.animator = GetComponent<Animator>();
+        this.render = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
@@ -25,5 +31,25 @@ public class TestScript : MonoBehaviour
         } else if (rigid.velocity.x < maxSpeed * (-1)) {   //왼쪽으로 이동할 때 속도 제한
             rigid.velocity = new Vector2(maxSpeed * (-1), rigid.velocity.y);
         }
+
+        //Jump
+        if (Input.GetButtonDown("Jump")) {
+            rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
+            animator.SetBool("isJumping", true);
+        }
+
+        //방향 전환
+        if (Input.GetButton("Horizontal")) {
+            render.flipX = Input.GetAxisRaw("Horizontal") == -1;
+        }
+
+        //Animation 전환
+        if (Mathf.Abs(rigid.velocity.x) < 0.4) {
+            animator.SetBool("isWalking", false);
+        }
+        else {
+            animator.SetBool("isWalking", true);
+        }
+
     }
 }
