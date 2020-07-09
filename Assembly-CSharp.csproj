@@ -66,7 +66,9 @@
     <Compile Include="Assets\Script\EnermyMove.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\PlayerController.cs" />
+    <Compile Include="Assets\Script\TestEnermyScript.cs" />
     <Compile Include="Assets\Script\TestScript.cs" />
+    <Compile Include="Assets\Test\GameManagerTest.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

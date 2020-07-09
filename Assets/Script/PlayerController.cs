@@ -154,10 +154,8 @@ public class PlayerController : MonoBehaviour
             PlaySound("ITEM");
             //Deactive Item
             collision.gameObject.SetActive(false);
-        }
-        else if (collision.gameObject.tag == "Finish") {
-            PlaySound("FINISH");
-            // Next Stage
+        } 
+        else if(collision.gameObject.tag == "Finish") {
             gameManager.NextStage();
         }
     }
@@ -204,6 +202,7 @@ public class PlayerController : MonoBehaviour
     }
 
     public void OnDie() {
+        Time.timeScale = 0;
         //Sprite Alpha
         render.color = new Color(1, 1, 1, 0.4f);
         //Sprite FlipY

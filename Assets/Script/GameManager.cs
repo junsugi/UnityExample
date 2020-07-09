@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
         HealthDown();
 
         if (collision.gameObject.tag == "Player") {
-            if(health > 1) {
+            if(health > 0) {
                 //Player Reposition
                 PlayerReposition();
             }
